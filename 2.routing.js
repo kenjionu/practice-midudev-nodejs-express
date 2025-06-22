@@ -7,6 +7,7 @@ const dittoJSON = require('./pokemon/ditto.json')
 const processRequest = (req, res) => {
     const { method, url } = req
 
+    sw
     switch (method) {
         case 'GET':
         switch(url) {
@@ -16,7 +17,7 @@ const processRequest = (req, res) => {
             default:
                 req.statusCode = 404
                 res.setHeader('Content-Type', 'text/html; charset=utf-8')
-                res.end('<h1>404</h1>')
+                return res.end('<h1>404</h1>')
         }
 
         case 'POST':
